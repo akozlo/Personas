@@ -6,7 +6,7 @@ This repo contains scripts to get started with using the Azure credits we have f
 
 The Azure_setup.ipynb file has scripts to get you started. First you will need to make environment variables for `AZURE_OPENAI_API_KEY` and `AZURE_OPENAI_ENDPOINT`. 
 
-I recommend using the dotenv library (install as `pip install python-dotenv`). Then make a file called .env in your workspace. But then you will also need to create a .gitignore file to avoid pushing it to the repo if you want to make updates.
+I recommend using the dotenv library (install as `pip install python-dotenv`). Then make a file called .env in your workspace.
 
 ### LLM API Calls
 
