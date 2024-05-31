@@ -1,0 +1,35 @@
+Email: ucknowledgelab@outlook.com
+
+## PRICING ##
+LLMs
+Models                          Context             Input (Per 1,000 tokens) 	Output (Per 1,000 tokens)
+GPT-4o                          128K                $0.005 	                    $0.015
+GPT-3.5-Turbo-0125              16K 	            $0.0005 	                $0.0015
+GPT-3.5-Turbo-Instruct          4K 	                $0.0015 	                $0.002
+
+Embedding models
+Models                      Per 1,000 tokens
+Ada                         $0.0001
+text-embedding-3-large      $0.00013
+text-embedding-3-small 	    $0.00002
+
+
+## EXAMPLE CODE ##
+
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-02-01",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+response = client.chat.completions.create(
+    model = current_deployment,
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
+
+print(response.choices[0].message.content)
